@@ -1,0 +1,10 @@
+.add input {
+  
+  padding: 10px 15px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+input[type=submit] {
+  width: 200px;
+}
