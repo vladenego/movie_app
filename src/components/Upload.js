@@ -16,7 +16,7 @@ class Upload extends React.Component {
         console.log("gav");
         
         var formData = new FormData();
-        var imagefile = document.querySelector('#file');
+        // var imagefile = document.querySelector('#file');
         formData.append("avatar", this.state.file);
         axios.post('http://localhost:5000/upload', formData, {
           headers: {
