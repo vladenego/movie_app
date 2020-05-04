@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header'
 import MovieList from './components/MovieList'
 import Add from './components/Add';
+import Upload from './components/Upload';
 import {
   BrowserRouter as Router,
   Switch,
@@ -41,6 +42,10 @@ function App() {
         <Switch>
           <Route path="/add">
             <Add />
+          </Route>
+
+          <Route path="/upload">
+            <Upload />
           </Route>
           <Route path="/">
             <MovieList data={movieLister} />

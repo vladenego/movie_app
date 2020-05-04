@@ -22,6 +22,9 @@ export default function Header(){
               <li>
               <Link to="/add">Add</Link>
               </li>
+              <li>
+              <Link to="/upload">Upload</Link>
+              </li>
             </ul>
           </nav>
       </header>
