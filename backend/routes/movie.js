@@ -1,5 +1,7 @@
 const router = require('express').Router();
 let Movie = require('../models/movie.model');
+const path = require("path");
+const multer = require("multer");
 
 router.route('/').get((req, res) => {
   Movie.find()
@@ -28,6 +30,33 @@ router.route('/add').post((req, res) => {
   .then(() => res.json('Movie added!'))
   .catch(err => res.status(400).json('Error: ' + err));
 });
+
+
+const storage = multer.diskStorage({
+  destination: "./public/images",
+  filename: function(req, file, cb){
+     cb(null,"IMAGE-" + Date.now() + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  limits:{fileSize: 1000000},
+}).single("myImage");
+
+// router.route('/upload').post((req, res) => {
+//   upload(req, res, function (err) {
+//       console.log("Request ---", req.body);
+//       console.log("Request file ---", req.file);//Here you get file.
+//       /*Now do where ever you want to do*/
+//       if(!err) {
+//           return res.send(200).end();
+//       }
+//   })
+// })
+
+
+
 
 // router.route('/:id').get((req, res) => {
 //   Movie.findById(req.params.id)
